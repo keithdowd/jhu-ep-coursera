@@ -15,12 +15,13 @@
     <main>
         <div ng-controller="LunchCheckController">
             <p><label for="foodInput">How many food items do you normally eat for lunch?</label></p>
-            <p><input type="text" id="foodInput" placeholder="e.g., sandwich, apple" required></p>
-            <p><button>Submit</button></p>
-            <p>RESULTS</p>
+            <p><input ng-model="foodInput" type="text" id="foodInput" placeholder="e.g., sandwich, apple"></p>
+            <p><button ng-click="isTooManyFoodItems(foodInput)">Check If Too Much</button></p>
+            <p>{{ countFoodItems }}</p>
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
