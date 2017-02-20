@@ -1,0 +1,14 @@
+#message {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.data-present {
+    border: 1px solid green;
+    color: green;
+}
+
+.data-not-present {
+    border: 1px solid red;
+    color: red;
+}
