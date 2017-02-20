@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lunch Checker (JHU | Coursera | Full Stack: AngularJS | Module 1 - Solution)</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -28,8 +28,8 @@
             <div class="form-group">
                 <p><button ng-click="isTooManyFoodItems(foodInput)" class="btn btn-success">Check If Too Much</button></p>
             </div>
-            <div id="message" class="form-group">
-                <p>{{ countFoodItems }}</p>
+            <div id="message" class="alert" ng-class="{'alert-success': countFoodItems === 'Enjoy!' || countFoodItems === 'Too much!', 'alert-danger': countFoodItems === 'Please enter data first'}">
+                <p><span class="glyphicon" ng-class="{'glyphicon-ok': countFoodItems === 'Enjoy!' || countFoodItems === 'Too much!', 'glyphicon-remove': countFoodItems === 'Please enter data first'}"></span> {{ countFoodItems }}</p>
             </div>
         </div>
     </main>
