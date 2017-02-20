@@ -16,6 +16,8 @@
     <main>
         <div ng-controller="LunchCheckController">
             <p><label for="foodInput">How many food items do you normally eat for lunch?</label></p>
+            <!-- An empty item is NOT considered as an item toward the item count -->
+            <!-- e.g., apple, ,banana is counted as 2 items, NOT 3 items -->
             <p><input ng-model="foodInput" type="text" id="foodInput" placeholder="e.g., sandwich, apple"></p>
             <p><button ng-click="isTooManyFoodItems(foodInput)">Check If Too Much</button></p>
             <p>{{ countFoodItems }}</p>
