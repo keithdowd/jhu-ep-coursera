@@ -6,6 +6,9 @@
     // Controller
     lunchCheckApp.controller('LunchCheckController', lunchCheckController);
 
+    // Inject $scope AngularJS service into lunchCheckController
+    lunchCheckController.$inject = ['$scope'];
+
     /*
      * AngularJS controller
      * @param {service} $scope - AngularJS scope service
