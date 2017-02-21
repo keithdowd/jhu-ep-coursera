@@ -1,5 +1,7 @@
 (function () {
 
+    'use strict';
+
     // Module
     var lunchCheckApp = angular.module('LunchCheck', []);
 
