@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <!-- ADD TITLE -->
+    </title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body ng-app="MyApp">
+    <!--<header>
+        <div id="container">
+            <div id="row">
+                <div class="col-md-12">
+                    <h1>Some header text</h1>
+                </div>
+            </div>
+        </div>
+    </header>-->
+
+    <main>
+        <!-- INPUT -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control">
+                            <button type="button" class="btn btn-default">Add</button>
+                        </div>
+
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <!-- SHOPPING LISTS -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <!-- SHOPPING LIST: BUY -->
+                <div class="col-md-5" ng-controller="shoppingListBuyController as shoppingListBuy">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>To Buy<span class="badge badge-primary pull-right">12</span></h4>
+                        </div>
+                        <ul class="list-group">
+                            <li ng-repeat="item in shoppingListBuy.shoppingList" class="list-group-item">Buy <span class="label label-primary">{{ item.quantity }}</span> {{ item.item }}
+                                <button ng-click="shoppingListBuy.boughtItem($index)" class="btn btn-success btn-xs pull-right">Bought</button>
+                            </li>
+                            <li class="list-group-item list-group-item-success">Nothing left to buy</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- SHOPPING LIST: BOUGHT -->
+                <div class="col-md-5" ng-controller="shoppingListBoughtController as shoppingListBought">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Already Bought <span class="badge badge-primary pull-right">12</span></h4>
+                        </div>
+                        <ul class="list-group">
+                            <li ng-repeat="item in shoppingListBought.shoppingList" class="list-group-item">Bought <span class="label label-default">{{ item.quantity }}</span> {{ item.item }}</li>
+                            <li class="list-group-item list-group-item-danger">Nothing bought</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </main>
+    <!-- JS -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
