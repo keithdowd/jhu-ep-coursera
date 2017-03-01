@@ -3,68 +3,64 @@
 
 <head>
     <meta charset="utf-8">
-    <title>
-        <!-- ADD TITLE -->
-    </title>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping List Checkoff (JHU | Coursera | Full Stack: AngularJS | Module 2 - Solution)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body ng-app="MyApp">
-    <!--<header>
-        <div id="container">
-            <div id="row">
-                <div class="col-md-12">
-                    <h1>Some header text</h1>
+<body ng-app="ShoppingListCheckOff">
+    <header>
+        <!-- MODULE/SOLUTION NAVIGATION -->
+        <nav class="container">
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation"><a href="https://keithdowd.github.io/jhu-fs-coursera/module1-solution/">Module 1</a></li>
+                        <li role="presentation" class="active"><a href="https://keithdowd.github.io/jhu-fs-coursera/module2-solution/">Module 2</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </header>-->
-
-    <main>
-        <!-- INPUT -->
+        </nav>
+        <!-- TITLE -->
         <div class="container">
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-
-                        <div class="form-group">
-                            <input type="text" class="form-control">
-                            <button type="button" class="btn btn-default">Add</button>
-                        </div>
-
+                <div class="col-md-11 col-md-offset-1">
+                    <h6>John Hopkins University | Coursera | Full Stack: AngularJS</h6>
+                    <h1>Shopping List Checkoff</h1>
+                    <h3>Solution for Module 2 assignment</h3>
                 </div>
-                <div class="col-md-1"></div>
             </div>
         </div>
+    </header>
+    <main>
         <!-- SHOPPING LISTS -->
         <div class="container">
             <div class="row">
                 <div class="col-md-1"></div>
                 <!-- SHOPPING LIST: BUY -->
-                <div class="col-md-5" ng-controller="shoppingListBuyController as shoppingListBuy">
+                <div class="col-md-5" ng-controller="ToBuyController as shoppingListBuy">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h4>To Buy<span class="badge badge-primary pull-right">12</span></h4>
+                            <h4>To Buy<span class="badge badge-primary pull-right">{{ shoppingListBuy.shoppingList.length }}</span></h4>
                         </div>
                         <ul class="list-group">
                             <li ng-repeat="item in shoppingListBuy.shoppingList" class="list-group-item">Buy <span class="label label-primary">{{ item.quantity }}</span> {{ item.item }}
-                                <button ng-click="shoppingListBuy.boughtItem($index)" class="btn btn-success btn-xs pull-right">Bought</button>
+                                <button ng-click="shoppingListBuy.buyItem($index)" class="btn btn-success btn-xs pull-right">Bought</button>
                             </li>
-                            <li class="list-group-item list-group-item-success">Nothing left to buy</li>
+                            <li ng-if="!shoppingListBuy.shoppingList.length" class="list-group-item list-group-item-success">Everything is bought!</li>
                         </ul>
                     </div>
                 </div>
                 <!-- SHOPPING LIST: BOUGHT -->
-                <div class="col-md-5" ng-controller="shoppingListBoughtController as shoppingListBought">
+                <div class="col-md-5" ng-controller="AlreadyBoughtController as shoppingListBought">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4>Already Bought <span class="badge badge-primary pull-right">12</span></h4>
+                            <h4>Already Bought <span class="badge badge-primary pull-right">{{ shoppingListBought.shoppingList.length }}</span></h4>
                         </div>
                         <ul class="list-group">
                             <li ng-repeat="item in shoppingListBought.shoppingList" class="list-group-item">Bought <span class="label label-default">{{ item.quantity }}</span> {{ item.item }}</li>
-                            <li class="list-group-item list-group-item-danger">Nothing bought</li>
+                            <li ng-if="!shoppingListBought.shoppingList.length" class="list-group-item list-group-item-danger">Nothing bought yet</li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +69,7 @@
         </div>
     </main>
     <!-- JS -->
-    <script src="node_modules/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 
