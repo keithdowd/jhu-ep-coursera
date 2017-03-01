@@ -6,6 +6,10 @@ main {
     margin-top: 2em; 
 }
 
+nav {
+    margin-bottom: 1.2em;
+}
+
 #message {
     font-size: 1.5em;
     font-weight: bold;
