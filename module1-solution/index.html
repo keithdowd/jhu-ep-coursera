@@ -11,6 +11,17 @@
 
 <body ng-app="LunchCheck">
     <header>
+        <!-- MODULE/SOLUTION NAVIGATION -->
+        <nav class="container">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="https://keithdowd.github.io/jhu-fs-coursera/module1-solution/">Module 1</a></li>
+                    <li role="presentation"><a href="https://keithdowd.github.io/jhu-fs-coursera/module2-solution/">Module 2</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <!-- TITLE -->
         <div class="container">
             <h6>John Hopkins University | Coursera | Full Stack: AngularJS</h6>
             <h1>Lunch Checker</h1>
@@ -29,7 +40,7 @@
                 <p><button ng-click="isTooManyFoodItems(foodInput)" class="btn btn-success">Check If Too Much</button></p>
             </div>
             <div id="message" class="alert" ng-class="{'alert-success': countFoodItems === 'Enjoy!' || countFoodItems === 'Too much!', 'alert-danger': countFoodItems === 'Please enter data first'}">
-                <p><span class="glyphicon" ng-class="{'glyphicon-ok': countFoodItems === 'Enjoy!' || countFoodItems === 'Too much!', 'glyphicon-remove': countFoodItems === 'Please enter data first'}"></span> {{ countFoodItems }}</p>
+                <p><span class="glyphicon" ng-class="{'glyphicon-ok': countFoodItems === 'Enjoy!' || countFoodItems === 'Too much!', 'glyphicon-remove': countFoodItems === 'Please enter data first'}"></span>                    {{ countFoodItems }}</p>
             </div>
         </div>
     </main>
