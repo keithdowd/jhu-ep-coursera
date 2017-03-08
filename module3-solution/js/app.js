@@ -6,6 +6,7 @@
 
     myApp.controller("NarrowItDownController", NarrowItDownController);
     myApp.service("MenuSearchService", MenuSearchService);
+    myApp.directive("foundItems", FoundItemsDirective);
 
     NarrowItDownController.$inject = ['MenuSearchService'];
 
@@ -30,7 +31,7 @@
             }
         }
 
-        vm.removeMenuItem = function (index) {
+        vm.onRemove = function (index) {
             vm.found.splice(index, 1);
         }
     }
@@ -68,6 +69,18 @@
 
             return response;
         };
+    }
+
+    function FoundItemsDirective() {
+        var ddo = {
+            templateUrl: "views/shoppingList.html",
+            scope: {
+                items: '<',
+                onRemove: '&'
+            }
+        };
+
+        return ddo;
     }
 
 })();
