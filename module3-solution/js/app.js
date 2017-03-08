@@ -6,7 +6,16 @@
 
     myApp.controller("NarrowItDownController", NarrowItDownController);
     myApp.service("MenuSearchService", MenuSearchService);
+    // myApp.directive("foundItems", FoundItemsDirective);
     myApp.directive("foundItems", FoundItemsDirective);
+
+    function FoundItemsDirective() {
+        var ddo = {
+            templateUrl: 'views/shoppingList.html',
+        };
+
+        return ddo;
+    }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
 
@@ -19,7 +28,7 @@
 
         vm.getMenuItems = function (searchTerm) {
             vm.searched = true;
-            
+
             if (searchTerm === '') {
                 vm.found = [];
             } else {
@@ -71,16 +80,16 @@
         };
     }
 
-    function FoundItemsDirective() {
-        var ddo = {
-            templateUrl: "views/shoppingList.html",
-            scope: {
-                items: '<',
-                onRemove: '&'
-            }
-        };
+    // function FoundItemsDirective() {
+    //     var ddo = {
+    //         templateUrl: "views/shoppingList.html",
+    //         scope: {
+    //             items: '<',
+    //             onRemove: '&'
+    //         }
+    //     };
 
-        return ddo;
-    }
+    //     return ddo;
+    // }
 
 })();
